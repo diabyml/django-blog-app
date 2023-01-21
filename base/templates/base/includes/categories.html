@@ -1,0 +1,10 @@
+{% for category in categories %}
+<li>
+  <a
+    class="float-nav-modal__link"
+    href="{% url 'base:category_articles' slug=category.slug %}"
+  >
+    {{category.title}}
+  </a>
+</li>
+{% endfor %}

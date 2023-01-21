@@ -1,0 +1,38 @@
+DATABASE DESIGN:
+
+
+Author:
+    first_name
+    last_name
+    email
+
+
+Category:
+    title
+
+Article:
+    title
+    content    (RichText)
+    date
+    slug
+    category ----> category.articles
+    autor  ------> author.articles
+
+
+
+VIEWS:
+    Home  --> actions:
+        get latests posts
+
+    All posts:
+        get all posts:
+            add ---> pagination later
+    
+    Post detail:
+        get single post
+
+URLS WILL BE AS FOLLOWS:
+    ''  ----> latests-posts
+    'articles/'  ---> all posts (pagination)
+    'articles/<slug:article_slug>/'get single post
+    '<slug:category_slug>/'  all posts of a category (pagination)

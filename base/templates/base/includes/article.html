@@ -1,0 +1,30 @@
+<article
+  class="dml-article flex flex-column justify-between story-v2 padding-y-lg border-bottom border-3 border-contrast-lower col12 col-6@md"
+>
+  <div>
+    <div class="story-v2__meta text-sm margin-bottom-sm">
+      <p>
+        Par
+        <a href="/" rel="author"> {{article.author}} </a>
+        <span role="separator"></span>
+        <time datetime="2020-05-10"> {{article.date}} </time>
+        <!-- <span role="separator"></span> <a href="#0">5 comments</a> -->
+      </p>
+    </div>
+
+    <div class="arttext-component">
+      <h2 class="story-v2__headline">
+        <a href="{% url 'base:article_detail' slug=article.slug %}">
+          {{article.title}}
+        </a>
+      </h2>
+    </div>
+  </div>
+  <div class="margin-top-md">
+    <a
+      class="btn btn--primary"
+      href="{% url 'base:category_articles' slug=article.category.slug %}"
+      >{{article.category}}</a
+    >
+  </div>
+</article>

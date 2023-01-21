@@ -1,0 +1,224 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      document.getElementsByTagName("html")[0].className += " js";
+    </script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% block styles %}{% endblock %}
+    <title>Diabyml</title>
+  </head>
+  <body>
+    <div
+      class="container max-width-sm hide-nav padding-y-sm z-index-header pointer-events-none js-hide-nav js-hide-nav--main"
+    >
+      <header class="float-nav-header pointer-events-auto">
+        <!-- <div class="flex-basis-0 flex-grow flex items-center display@md">
+          <ul class="flex items-center gap-sm padding-left-xs">
+            <li class="flex items-center">
+              <a class="float-nav-header__link" href="/">A propos</a>
+            </li>
+          </ul>
+        </div> -->
+        <div
+          class="flex-basis-0 flex-grow flex items-center justify-start padding-left-xs justify-center@md padding-left-0@md"
+        >
+          <a class="float-nav-header__logo text-decoration-none" href="/">
+            Diabyml
+          </a>
+        </div>
+
+        <div class="flex-basis-0 flex-grow flex items-center justify-end">
+          <ul class="flex items-center gap-sm">
+            <li>
+              <button
+                class="reset float-nav-header__menu-btn js-tab-focus"
+                aria-controls="float-nav-modal"
+              >
+                <span>Menu</span>
+
+                <svg
+                  class="icon margin-left-xxs"
+                  aria-hidden="true"
+                  viewBox="0 0 13 13"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="0.5" y1="6.5" x2="12.5" y2="6.5" />
+                    <line x1="0.5" y1="2.5" x2="12.5" y2="2.5" />
+                    <line x1="0.5" y1="10.5" x2="12.5" y2="10.5" />
+                  </g>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </header>
+    </div>
+
+    <!--  content -->
+    <main class="position-relative z-index-1 padding-y-lg">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- modal window -->
+    <div
+      id="float-nav-modal"
+      class="float-nav-modal modal modal--animate-fade bg js-modal"
+      data-theme="demo-dark"
+      data-modal-prevent-scroll="body"
+    >
+      <div class="padding-top-xl height-100% overflow-auto momentum-scrolling">
+        <div class="container max-width-lg height-100% flex flex-column">
+          <header class="flex items-center justify-between">
+            <a class="float-nav-header__logo text-decoration-none" href="/">
+              Diabyml
+            </a>
+            <button
+              class="reset float-nav-modal__close-btn js-modal__close js-tab-focus"
+            >
+              <svg class="icon" viewBox="0 0 20 20">
+                <title>Close modal window</title>
+                <g
+                  class="float-nav-modal__close-icon-g"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-miterlimit="10"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="2" y1="2" x2="18" y2="18" />
+                  <line x1="18" y1="2" x2="2" y2="18" />
+                </g>
+              </svg>
+            </button>
+          </header>
+
+          <nav
+            class="padding-y-xl width-66%@md"
+            role="navigation"
+            aria-label="Main"
+          >
+            <ol class="float-nav-modal__list grid gap-xs">
+              {% block categories %}{% endblock %}
+              <!-- <li><a class="float-nav-modal__link" href="#0">A propos</a></li> -->
+            </ol>
+          </nav>
+
+          <footer
+            class="border-top border-contrast-higher border-opacity-10% padding-y-sm margin-top-auto"
+          >
+            <div class="flex items-center justify-between">
+              <p class="text-xs color-contrast-medium">
+                &copy; Copyright 2022 par Diabyml
+              </p>
+
+              <!-- socials -->
+              <div>
+                <ul class="flex flex-wrap gap-xs items-center">
+                  <li>
+                    <a class="float-nav-modal__social-btn" href="/">
+                      <svg class="icon" viewBox="0 0 32 32">
+                        <title>Suivre sur Twitter</title>
+                        <g>
+                          <path
+                            d="M32,6.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.7,3.8,24,3,22.2,3 c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5C10.3,10.8,5.5,8.2,2.2,4.2c-0.6,1-0.9,2.1-0.9,3.3c0,2.3,1.2,4.3,2.9,5.5 c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1C2.9,27.9,6.4,29,10.1,29c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C30,8.5,31.1,7.4,32,6.1z"
+                          ></path>
+                        </g>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="float-nav-modal__social-btn" href="/">
+                      <svg class="icon" viewBox="0 0 32 32">
+                        <title>Suivre sur Facebook</title>
+                        <path
+                          d="M32,16A16,16,0,1,0,13.5,31.806V20.625H9.438V16H13.5V12.475c0-4.01,2.389-6.225,6.043-6.225a24.644,24.644,0,0,1,3.582.312V10.5H21.107A2.312,2.312,0,0,0,18.5,13v3h4.438l-.71,4.625H18.5V31.806A16,16,0,0,0,32,16Z"
+                        ></path>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="float-nav-modal__social-btn" href="/">
+                      <svg class="icon" viewBox="0 0 32 32">
+                        <title>suivre sur Youtube</title>
+                        <path
+                          d="M31.7,9.6c0,0-0.3-2.2-1.3-3.2c-1.2-1.3-2.6-1.3-3.2-1.4C22.7,4.7,16,4.7,16,4.7h0c0,0-6.7,0-11.2,0.3 c-0.6,0.1-2,0.1-3.2,1.4c-1,1-1.3,3.2-1.3,3.2S0,12.2,0,14.8v2.4c0,2.6,0.3,5.2,0.3,5.2s0.3,2.2,1.3,3.2c1.2,1.3,2.8,1.2,3.5,1.4 C7.7,27.2,16,27.3,16,27.3s6.7,0,11.2-0.3c0.6-0.1,2-0.1,3.2-1.4c1-1,1.3-3.2,1.3-3.2s0.3-2.6,0.3-5.2v-2.4 C32,12.2,31.7,9.6,31.7,9.6z M12.7,20.2l0-9l8.6,4.5L12.7,20.2z"
+                        ></path>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- end socials -->
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- main footer -->
+    <footer class="main-footer position-relative z-index-1">
+      <div class="container max-width-lg">
+        <div
+          class="flex flex-column border-top padding-y-xs margin-top-lg flex-row@md justify-between@md items-center@md"
+        >
+          <div class="margin-bottom-sm margin-bottom-0@md">
+            <div
+              class="text-sm text-xs@md color-contrast-medium flex flex-wrap gap-xs"
+            >
+              <span>&copy; diabyml</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-xs">
+            <a href="/" class="main-footer__social">
+              <svg class="icon block" viewBox="0 0 16 16">
+                <title>Suivre sur Twitter</title>
+                <g>
+                  <path
+                    d="M16,3c-0.6,0.3-1.2,0.4-1.9,0.5c0.7-0.4,1.2-1,1.4-1.8c-0.6,0.4-1.3,0.6-2.1,0.8c-0.6-0.6-1.5-1-2.4-1 C9.3,1.5,7.8,3,7.8,4.8c0,0.3,0,0.5,0.1,0.7C5.2,5.4,2.7,4.1,1.1,2.1c-0.3,0.5-0.4,1-0.4,1.7c0,1.1,0.6,2.1,1.5,2.7 c-0.5,0-1-0.2-1.5-0.4c0,0,0,0,0,0c0,1.6,1.1,2.9,2.6,3.2C3,9.4,2.7,9.4,2.4,9.4c-0.2,0-0.4,0-0.6-0.1c0.4,1.3,1.6,2.3,3.1,2.3 c-1.1,0.9-2.5,1.4-4.1,1.4c-0.3,0-0.5,0-0.8,0c1.5,0.9,3.2,1.5,5,1.5c6,0,9.3-5,9.3-9.3c0-0.1,0-0.3,0-0.4C15,4.3,15.6,3.7,16,3z"
+                  ></path>
+                </g>
+              </svg>
+            </a>
+
+            <a href="/" class="main-footer__social">
+              <svg class="icon block" viewBox="0 0 16 16">
+                <title>Suivre sur Youtube</title>
+                <g>
+                  <path
+                    d="M15.8,4.8c-0.2-1.3-0.8-2.2-2.2-2.4C11.4,2,8,2,8,2S4.6,2,2.4,2.4C1,2.6,0.3,3.5,0.2,4.8C0,6.1,0,8,0,8 s0,1.9,0.2,3.2c0.2,1.3,0.8,2.2,2.2,2.4C4.6,14,8,14,8,14s3.4,0,5.6-0.4c1.4-0.3,2-1.1,2.2-2.4C16,9.9,16,8,16,8S16,6.1,15.8,4.8z M6,11V5l5,3L6,11z"
+                  ></path>
+                </g>
+              </svg>
+            </a>
+
+            <a href="/" class="main-footer__social">
+              <svg class="icon block" viewBox="0 0 16 16">
+                <title>Suivre sur Github</title>
+                <g>
+                  <path
+                    d="M8,0.2c-4.4,0-8,3.6-8,8c0,3.5,2.3,6.5,5.5,7.6 C5.9,15.9,6,15.6,6,15.4c0-0.2,0-0.7,0-1.4C3.8,14.5,3.3,13,3.3,13c-0.4-0.9-0.9-1.2-0.9-1.2c-0.7-0.5,0.1-0.5,0.1-0.5 c0.8,0.1,1.2,0.8,1.2,0.8C4.4,13.4,5.6,13,6,12.8c0.1-0.5,0.3-0.9,0.5-1.1c-1.8-0.2-3.6-0.9-3.6-4c0-0.9,0.3-1.6,0.8-2.1 c-0.1-0.2-0.4-1,0.1-2.1c0,0,0.7-0.2,2.2,0.8c0.6-0.2,1.3-0.3,2-0.3c0.7,0,1.4,0.1,2,0.3c1.5-1,2.2-0.8,2.2-0.8 c0.4,1.1,0.2,1.9,0.1,2.1c0.5,0.6,0.8,1.3,0.8,2.1c0,3.1-1.9,3.7-3.7,3.9C9.7,12,10,12.5,10,13.2c0,1.1,0,1.9,0,2.2 c0,0.2,0.1,0.5,0.6,0.4c3.2-1.1,5.5-4.1,5.5-7.6C16,3.8,12.4,0.2,8,0.2z"
+                  ></path>
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+  </body>
+</html>

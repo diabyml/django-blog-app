@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+<!-- content -->
+{% block content %}
+<div class="container max-width-adaptive-sm">
+  <div>
+    <h2 class="text-center color-primary margin-bottom-md">
+      {{article.title}}
+    </h2>
+    <p>{{article.content}}</p>
+  </div>
+</div>
+{% endblock %}
+
+<!-- categories -->
+{% block categories %}
+<!-- categories -->
+{% include 'base/includes/categories.html' %} {% endblock %}
